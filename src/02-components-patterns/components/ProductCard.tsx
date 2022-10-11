@@ -1,0 +1,33 @@
+import { useProducts } from '../hooks/useProducts';
+import styles from '../styles/styles.module.css';
+
+import { createContext } from 'react';
+import { ProductContextProps, ProductCardProps } from '../interfaces/interfaces';
+
+
+
+//esto es para compartir informacion entre padres e hijos
+export const ProductContext = createContext({} as ProductContextProps);
+
+const { Provider } =  ProductContext;
+
+export const ProductCard = ({children, product }: ProductCardProps) => {
+
+    const { counter, increaseBy } = useProducts();
+
+  return (
+        <Provider value ={{
+            counter,
+            increaseBy, 
+            product
+        }}>
+
+            <div className={ styles.productCard}>
+
+                { children }
+                
+            </div>
+        </Provider>
+  )
+}
+
