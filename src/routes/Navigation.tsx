@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route, NavLink, Navigate} from 'react-router-dom';
 
 import logo from '../logo.svg';
-import { FormikAbstractation, FormikBasicPage, FormikYupPage, FormikComponents, RegisterPage } from '../03-forms/pages';
+import { FormikAbstractation, FormikBasicPage, FormikYupPage, FormikComponents, RegisterPage, RegisterFormikPage, DynamicForm } from '../03-forms/pages';
 
 export const Navigation = () => {
   return (
@@ -29,7 +29,15 @@ export const Navigation = () => {
                     </li>
 
                     <li>
-                        <NavLink to="/formik-abstract" className={ ({ isActive }) => isActive ? 'nav-active': '' }>Formik Abstract</NavLink>
+                        <NavLink to="/formik-abstractation" className={ ({ isActive }) => isActive ? 'nav-active': '' }>Formik Abstract</NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="/formik-register" className={ ({ isActive }) => isActive ? 'nav-active': '' }>Register Formik</NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="/dynamic-form" className={ ({ isActive }) => isActive ? 'nav-active': '' }>Dynamic Form</NavLink>
                     </li>
 
                     <li>
@@ -44,7 +52,9 @@ export const Navigation = () => {
                 <Route path="formik-basic" element={  <FormikBasicPage /> } />
                 <Route path="formik-yup" element={  <FormikYupPage /> } />
                 <Route path="formik-components" element={  <FormikComponents /> } />
-                <Route path="formik-abstract" element={  <FormikAbstractation /> } />
+                <Route path="formik-abstractation" element={  <FormikAbstractation /> } />
+                <Route path="formik-register" element={  <RegisterFormikPage /> } />
+                <Route path="dynamic-form" element={  <DynamicForm /> } />
                 <Route path="users" element={ <h1>Users Page</h1> } />
                 <Route path="home" element={ <h1>Home Page</h1> } />
 
